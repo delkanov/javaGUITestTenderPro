@@ -1,0 +1,9 @@
+test\PageObject\TenderProFailedLoginPage.class
+test\PageObject\TenderProMainPageFooter.class
+Main.class
+test\PageObject\PageBlock.class
+test\PageObject\TenderProMainPageContent.class
+test\PageTest.class
+test\PageObject\TenderProFailedLoginPageContent.class
+test\PageObject\TenderProMainPage.class
+test\PageObject\TenderProMainPageHeader.class
