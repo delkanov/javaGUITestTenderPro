@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+}
+
+group 'java'
+version '1.0-SNAPSHOT'
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    seleniumVersion = '3.4.0'
+    junit5Version = '5.6.2'
+    webDriverManagerVersion = '3.6.2'
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:21.0-jre' 
+    compile "org.junit.jupiter:junit-jupiter-api:${junit5Version}"
+    compile "org.junit.jupiter:junit-jupiter-engine:${junit5Version}"
+    compile "org.junit.jupiter:junit-jupiter-params:${junit5Version}"
+    compile "org.junit.vintage:junit-vintage-engine:${junit5Version}"
+    compile "org.seleniumhq.selenium:selenium-chrome-driver:${seleniumVersion}"
+    compile "org.seleniumhq.selenium:selenium-api:${seleniumVersion}"
+    compile "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    testImplementation('org.junit.jupiter:junit-jupiter-api:${junit5Version}')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:${junit5Version}')
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+tasks.withType(Test) {
+	systemProperty "file.encoding", "UTF-8"
+}
+
+test {
+	useJUnitPlatform()
+systemProperties['webdriver.chrome.driver'] = System.getProperty("webdriver.chrome.driver", "1")
+println 'webdriver.chrome.driver is ' + systemProperties['webdriver.chrome.driver'] 
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}

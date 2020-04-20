@@ -1,8 +1,6 @@
-package test;
-
 import org.junit.jupiter.api.AfterAll;
-import test.PageObject.TenderProFailedLoginPage;
-import test.PageObject.TenderProMainPage;
+import PageObject.TenderProFailedLoginPage;
+import PageObject.TenderProMainPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
